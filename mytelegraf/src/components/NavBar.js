@@ -1,21 +1,37 @@
 import React, { useContext } from 'react'
 import { Context } from '../index'
-import { Nav, Navbar, Container, NavLink } from 'react-bootstrap'
-import { HOME_ROUTE } from '../utils/consts'
+import { Nav, Navbar, Container, NavLink, Button } from 'react-bootstrap'
+import { HOME_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/consts'
+import { observer } from 'mobx-react-lite'
+import { useNavigate } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = observer(() => {
     const { user } = useContext(Context)
+    const navigate = useNavigate()
+
+    const logOut = () => {
+        user.setUser({})
+        user.setIsAuth(false)
+        localStorage.setItem('token', '')
+    }
+
     return (
         <Navbar bg="dark" variant="dark">
             <Container>
-                <NavLink style={{ color: 'white' }} to={HOME_ROUTE}>MyTelegraf</NavLink>
-                <Nav className="me-auto">
-                    <Nav.Link href="">Join</Nav.Link>
-                    <Nav.Link href="">Registration</Nav.Link>
-                </Nav>
+                <Button style={{ color: 'white' }} href={HOME_ROUTE}>MyTelegraf</Button>
+                {user.isAuth ?
+                    <Nav className="ms-auto">
+                        <Button variant={"btn btn-secondary"} className="ms-3" onClick={() => logOut()} >Logout</Button>
+                    </Nav>
+                    :
+                    <Nav className="ms-auto" >
+                        <Button variant={"btn btn-secondary"} onClick={() => navigate(REGISTRATION_ROUTE)} >Registration</Button>
+                        <Button variant={"btn btn-secondary"} onClick={() => navigate(LOGIN_ROUTE)} className="ms-3" >Login</Button>
+                    </Nav>
+                    }
             </Container>
         </Navbar>
     );
-}
+})
 
 export default NavBar
