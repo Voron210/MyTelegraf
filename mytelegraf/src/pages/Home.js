@@ -2,6 +2,7 @@ import { Form, Row, Col, Nav, Navbar, Container, NavLink, Button } from 'react-b
 import React, { useContext } from 'react'
 import { DIALOG_ROUTE, REGISTRATION_ROUTE } from '../utils/consts';
 import { Context } from '../index'
+import News from '../components/Home/News';
 
 const Home = () => {
     const { user } = useContext(Context)
@@ -20,6 +21,9 @@ const Home = () => {
                                 <h2 className=" px-4 text-center">Let's play</h2>
                             </Button>
                         </Form>
+                    </Row>
+                    <Row>
+                        <News/>
                     </Row>
                 </Col>
             </Container>

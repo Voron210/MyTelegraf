@@ -18,3 +18,13 @@ export const check = async () => {
     localStorage.setItem('token', data.token)
     return jwt_decode(data.token)
 }
+
+export const getAllUser = async () => {
+    const { data } = await $authHost.get('/user')
+    return data
+}
+
+export const getUserInDialog = async (dialogId) => {
+    const { data } = await $authHost.post('/user/dialogId', { dialogId })
+    return data
+}

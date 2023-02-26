@@ -1,0 +1,23 @@
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar::-webkit-scrollbar {
+    width: 10px;
+    
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background-color: rgba(247, 242, 250, 0.1);
+    border-radius: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(220, 182, 244, 0.2);
+    border-radius: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-track:hover {
+    background-color: rgba(247, 242, 250, 0.1);
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(220, 182, 244, 0.9);
+}

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Context } from '../index'
-import { Nav, Navbar, Container, NavLink, Button } from 'react-bootstrap'
+import { Nav, Navbar, Container, NavLink, Button, Card } from 'react-bootstrap'
 import { HOME_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/consts'
 import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router-dom'
@@ -21,6 +21,9 @@ const NavBar = observer(() => {
                 <Button style={{ color: 'white' }} href={HOME_ROUTE}>MyTelegraf</Button>
                 {user.isAuth ?
                     <Nav className="ms-auto">
+                        <div style={{ color:'white' }} className="my-auto">
+                            {user.nickname }
+                        </div>
                         <Button variant={"btn btn-secondary"} className="ms-3" onClick={() => logOut()} >Logout</Button>
                     </Nav>
                     :

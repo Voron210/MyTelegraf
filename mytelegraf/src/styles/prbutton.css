@@ -1,0 +1,16 @@
+/* Purple Button */
+.prbutton {
+    display: inline-block;
+    border-radius: 6px;
+    background-color: #CE9EE8;
+    border: none;
+    color: #fff;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+/* On hover */
+.prbutton:hover {
+    background-color: #D5B2E8;
+}
